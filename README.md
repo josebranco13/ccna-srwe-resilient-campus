@@ -11,6 +11,23 @@ This project implements a highly available, multi-layer enterprise campus networ
 
 Developed as part of the **CCNA Switching, Routing, and Wireless Essentials (SRWE)** curriculum, the main objective was to build a resilient, secure, and scalable infrastructure capable of withstanding single-point-of-failure scenarios through **Layer 2 and Layer 3 redundancy**.
 
+## Topology & Hardware Inventory
+
+![Network Topology](./topology.png)
+
+The campus network infrastructure comprises **6 network devices** across the Core/Distribution, Access, and Edge layers, configured using standard Cisco enterprise hardware models in Cisco Packet Tracer:
+
+| Device Name     | Device Model            | Quantity | Layer / Role | Key Specifications |
+|:----------------|:------------------------|:--------:|:-------------|:-------------------|
+| **R1-EDGE**     | Cisco 2911 ISR          | 1        | Edge Router  | Integrated Services Router with GigabitEthernet interfaces[cite: 10]. |
+| **DSW1-CORE**   | Cisco Catalyst 3650-24PS| 1        | Collapsed Core/Dist (Primary) | Multilayer Switch with IP Routing (`ip routing`), SVI inter-VLAN routing, and LACP EtherChannel[cite: 8, 10]. |
+| **DSW2-BACKUP** | Cisco Catalyst 3650-24PS| 1        | Collapsed Core/Dist (Secondary) | Multilayer Switch acting as Secondary Root Bridge for L2 redundancy[cite: 8, 10, 11]. |
+| **ASW1-FLOOR1** | Cisco Catalyst 2960-24TT| 1        | Access Layer | Layer 2 Switch supporting FastEthernet access ports, sticky port-security, and trunk uplinks[cite: 8]. |
+| **ASW2-FLOOR2** | Cisco Catalyst 2960-24TT| 1        | Access Layer | Layer 2 Switch servicing Floor 2 PCs, printer, and wireless infrastructure[cite: 7, 8]. |
+| **ASW3-SRV**    | Cisco Catalyst 2960-24TT| 1        | Access Layer | Dedicated Layer 2 Switch for central server farm and management access[cite: 8, 9]. |
+
+> **Note:** Make sure to save your topology screenshot as `topology.png` in the root directory (or update the path accordingly) to render the image properly.
+
 ### Key Capabilities & Technologies
 
 * **Layer 2 Security & Isolation**
